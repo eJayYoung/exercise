@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="免费发送短信" />	
+	<script type="text/javascript">
+	var oBtn=document.getElementsByTagName('input')[0];
+	var timer=null;
+	oBtn.onclick=function(){
+		var s=5;
+		oBtn.disabled=true;
+		clearInterval(timer);
+		tick();
+		function tick(){
+			s--;
+			oBtn.value=s+'s后重新发送';
+			if(s<0){
+				s=0;
+				clearInterval(timer);
+				oBtn.value='免费发送短息';
+				oBtn.disabled=false;
+			}
+		}
+		timer=setInterval(tick,1000);
+	}
+	</script>
+</body>
+</html>

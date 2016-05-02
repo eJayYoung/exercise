@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	</style>
+</head>
+<body>
+	<input type="button" value="-" />
+	<input type="text" value="0" />
+	<input type="button" value="+" />
+	<script type="text/javascript">
+		var plus=document.getElementsByTagName('input')[2];
+		var minus=document.getElementsByTagName('input')[0];
+		var oTxt=document.getElementsByTagName('input')[1];
+		var n=0;
+		var timer=null;
+		plus.onmousedown=function(){
+			timer=setInterval(function(){
+				n+=3;
+				oTxt.value=n;
+			},50);
+		}
+		plus.onmouseup=function(){
+			clearInterval(timer);
+		}
+		minus.onmousedown=function(){
+			timer=setInterval(function(){
+				n-=3;
+				oTxt.value=n;
+			},50);
+		}
+		minus.onmouseup=function(){
+			clearInterval(timer);
+		}
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

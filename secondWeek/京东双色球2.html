@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="哈哈500万"/>
+	<div></div>
+	<script type="text/javascript">
+	function rnd(n,m){
+		return parseInt(Math.random()*(m-n)+n);
+	}
+	function findInArr(arr,n){
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]==n){
+				return true;
+			}
+		}
+		return false;
+	}
+		var oBtn=document.getElementsByTagName('input')[0];
+		var oDiv=document.getElementsByTagName('div')[0];
+		var timer=null;
+		tick();
+		oBtn.onclick=tick;
+		function tick(){
+			clearInterval(timer);
+			timer=setInterval(function(){
+				var arr=[];
+					while(arr.length<6){	//可以每次都push进去
+					var n=rnd(1,34);
+					if(findInArr(arr,n)==false){
+						arr.push(n);
+					}
+				}
+				oDiv.innerHTML=arr;
+			},100);	
+			setTimeout(function(){
+				clearInterval(timer);
+			},500);
+		}
+
+	</script>
+</body>
+</html>

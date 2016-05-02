@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{text-align: center;}
+	span{font-size: 100px;font-family: "微软雅黑";position: relative;display: block;}
+	</style>
+</head>
+<body>
+	<span>00:00:00</span>
+	<script type="text/javascript">
+	function toDou(iNum){
+		return iNum<10?'0'+iNum:''+iNum;
+	}
+		var oS=document.getElementsByTagName('span')[0];
+		setInterval(function(){
+			var oDate = new Date();
+			oS.innerHTML=''+oDate.getHours()+':'+toDou(oDate.getMinutes())+':'+toDou(oDate.getSeconds())+'';
+		},1000);
+	</script>
+</body>
+</html>
