@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>简易计算器</title>
+</head>
+
+<body>
+<input type="text" id="Txt1"/>
+<select id="select">
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="*">*</option>
+<option value="/">/</option>
+</select>
+<input type="text" id="Txt2"/>
+<input type="button" value="计算" id="btn"/>
+<script type="text/javascript">
+var num1=document.getElementById('Txt1');
+var num2=document.getElementById('Txt2');
+var change=document.getElementById('select');
+var oBtn=document.getElementById('btn');
+oBtn.onclick=function(){
+	switch(change.value){
+		case '+':
+		alert (parseFloat(num1.value)+parseFloat(num2.value));
+		break;
+		case '-':
+		alert (parseFloat(num1.value)-parseFloat(num2.value));
+		break;
+		case '*':
+		alert (parseFloat(num1.value)*parseFloat(num2.value));
+		break;
+		case '/':
+		alert (parseFloat(num1.value)/parseFloat(num2.value));
+		break;
+	}
+}
+</script>
+</body>
+</html>
