@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//数组去重第二种方法:先将数组排序，然后循环对比后面相邻一个，如果相同就删除一个，同时数组个数减一
+var arr=['a','a','b','b','a','a','c','d','a','b','e','f'];
+arr.sort();
+for(var i=0;i<arr.length;i++){
+	if(arr[i]==arr[i+1]){
+		arr.splice(i,1);
+		i--;
+	}
+}
+document.write(arr);
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//'welcome to zhinengshe' -> 'Zhinengshe To Welcome'
+var str='welcome to zhinengshe!';
+str=str.substring(0,str.length-1);
+var arr=str.split(' ');
+for(var i=0;i<arr.length;i++){
+	arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substring(1);
+}
+arr.reverse();
+str=arr.join(' ');
+alert(str);
+</script>
+</body>
+</html>

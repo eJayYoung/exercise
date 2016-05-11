@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//数组去重的第一种方法:使用json特性，相同的名字会覆盖
+var arr=['a','a','b','b','a','a','c','d','a','b','e','f'];
+var json={};
+for(var i=0;i<arr.length;i++){
+	var a=json[arr[i]];
+	if(a){
+		json[arr[i]]++;
+	}else{
+		json[arr[i]]=1;
+	}
+}
+console.log(json);
+</script>
+</body>
+</html>

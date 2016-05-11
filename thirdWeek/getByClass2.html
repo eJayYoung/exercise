@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li class="on on1"></li>
+		<li class="on on1"></li>
+		<li class="on2 on1"></li>
+		<li class="on on1"></li>
+		<li class="on on1"></li>
+		<li class="on on1"></li>
+		<li class="on on1"></li>
+		<li class="on on1"></li>
+	</ul>
+	<script type="text/javascript">
+	function findInArr(arr,n){
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]==n){
+				return true;
+			}
+		}
+		return false;
+	}
+	function getByClass(obj,sClass){
+		var arr=[];
+		var aEle=obj.getElementsByTagName('*');
+		for(var i=0;i<aEle.length;i++){
+			var aClass=aEle[i].className.split(' ');
+			if(findInArr(aClass,sClass)){
+				arr.push(aEle[i]);
+			}
+		}
+		return arr;
+	}
+	</script>
+</body>
+</html>

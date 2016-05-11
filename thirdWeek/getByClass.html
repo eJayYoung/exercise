@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li class="on on1"></li>
+		<li class="on"></li>
+		<li class="on"></li>
+		<li class="on1"></li>
+		<li class="on on2"></li>
+		<li class="on1"></li>
+		<li class=""></li>
+	</ul>
+	<script type="text/javascript">
+	function findInArr(arr,n){
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]==n){
+				return true;
+			}
+		}
+		return false;
+	}
+	function getByClass(obj,sClass){
+		var arr=[];
+		var aEle=obj.getElementsByTagName('*');
+		for(var i=0;i<aEle.length;i++){
+			var aClass=aEle[i].className.split(' ');
+			if(findInArr(aClass,sClass)){
+				arr.push(aEle[i]);
+			}
+		}
+		return arr;
+	}
+	var oUl=document.getElementsByTagName('ul')[0];
+	alert(getByClass(oUl,'on').length);
+	</script>
+</body>
+</html>
