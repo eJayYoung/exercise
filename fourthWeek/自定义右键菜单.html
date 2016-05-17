@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;list-style: none;}
+	#ul{width:150px;border:1px solid red;position: absolute;top:0;left: 0;display: none;}
+	#ul li{width:150px;height:36px;line-height: 36px;text-align: center;color:#999;background: rgba(255,230,221,.5);border-bottom: 1px solid #ccc;}
+	#ul li:hover{color: #fff;background: purple;cursor: pointer;}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oUl=document.getElementById('ul');
+		var aLi=oUl.children;
+		document.oncontextmenu=function(ev){
+			var oEvent=ev||event;
+			oUl.style.left=oEvent.clientX+'px';
+			oUl.style.top=oEvent.clientY+'px';
+			oUl.style.display='block';
+			return false;
+		}
+		document.onclick=function(){
+			oUl.style.display='none';
+		}
+		aLi[4].onclick=function(){
+			window.open('http://www.baidu.com/');
+		}
+		aLi[2].onclick=function(){
+			window.location.reload();
+		}
+	}
+	</script>
+</head>
+<body>
+	<ul id="ul">
+		<li>返回</li>
+		<li>前进</li>
+		<li>重新加载</li>
+		<li>另存为</li>
+		<li>跳转到百度</li>
+		<li>审查元素</li>
+	</ul>
+</body>
+</html>

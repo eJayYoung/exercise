@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	div{width:200px;height:300px;position: relative;float: left;margin-right: 10px;}
+	#s img{width:200px;height:300px;}
+	#m{width:100px;height:100px;background: yellow;opacity:0.5;position: absolute;top:0;left: 0;display: none;}
+	#b{width:300px;height:450px;overflow: hidden;display: none;}
+	#b img{position: absolute;top:0;left: 0;}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oS=document.getElementById('s');
+		var oM=document.getElementById('m');
+		var oB=document.getElementById('b');
+		var oImg=oB.getElementsByTagName('img')[0];
+
+		oS.onmouseover=function(){
+			oM.style.display='block';
+			oB.style.display='block';
+		}
+		oS.onmouseout=function(){
+			oM.style.display='none';
+			oB.style.display='none';
+		}
+		oS.onmousemove=function(ev){
+			var oEvent=ev||event;
+			var t=oEvent.clientY-oM.offsetHeight/2;
+			var l=oEvent.clientX-oM.offsetWidth/2;
+			if(t<0){
+				t=0;
+			}else if(t>(oS.offsetHeight-oM.offsetHeight)){
+				t=oS.offsetHeight-oM.offsetHeight;
+			}
+			if(l<0){
+				l=0;
+			}else if(l>(oS.offsetWidth-oM.offsetWidth)){
+				l=oS.offsetWidth-oM.offsetWidth;
+			}
+			oM.style.top=t+'px';
+			oM.style.left=l+'px';
+
+			oImg.style.top=-t*(oImg.offsetHeight-oB.offsetHeight)/(oS.offsetHeight-oM.offsetHeight)+'px';
+			oImg.style.left=-l*(oImg.offsetWidth-oB.offsetWidth)/(oS.offsetWidth-oM.offsetWidth)+'px';
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="s">
+		<img src="1.gif" alt="" id="img1">
+		<div id="m"></div>
+	</div>
+	<div id="b"><img src="1.gif" alt=""></div>
+</body>
+</html>

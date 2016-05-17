@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+<script type="text/javascript">
+var data=[
+	{
+		title:'今天天气好',
+		href:'http://www.baidu.com/',
+		child:[
+			{title:'今天要出太阳',href:'http://www.jd.com/'},
+			{title:'今天适合出门玩耍',href:'http://www.taobao.com/'}
+		]
+	},
+		{
+		title:'今天天气好222',
+		href:'http://www.baidu.com/',
+		child:[
+			{title:'今天要出太阳111',href:'http://www.jd.com/'},
+			{title:'今天适合出门玩耍111',href:'http://www.taobao.com/'}
+		]
+	},
+		{
+		title:'今天天气好333',
+		href:'http://www.baidu.com/',
+		child:[
+			{title:'今天要出太阳222',href:'http://www.jd.com/'},
+			{title:'今天适合出门玩耍222',href:'http://www.taobao.com/'}
+		]
+	}
+];
+var oUl=document.getElementsByTagName('ul')[0];
+for(var i=0;i<data.length;i++){
+	var oLi=document.createElement('li');
+	oUl.appendChild(oLi);
+	oLi.innerHTML='<p><a href="'+data[i].href+'"">'+data[i].title+'</a></p><a href="'+data[i].child[0].href+'">'+data[i].child[0].title+'</a>&nbsp<a href="'+data[i].child[1].href+'">'+data[i].child[1].title+'</a>';
+}
+</script>
+</body>
+</html>

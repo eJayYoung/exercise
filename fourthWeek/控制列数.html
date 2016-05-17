@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{ margin:0; }
+	div{ width:12.5%; height:100px; float:left; color:#fff; font-size:30px; line-height:100px; text-align:center; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var aDiv=document.getElementsByTagName('div');
+		window.onresize=function(){
+			var cw=document.documentElement.clientWidth;
+			if(cw<400){
+				for(var i=0;i<aDiv.length;i++){
+					aDiv[i].style.width="50%";
+				}
+			}else if(cw>400&&cw<=800){
+				for(var i=0;i<aDiv.length;i++){
+					aDiv[i].style.width="25%";
+				}
+			}else{
+				for(var i=0;i<aDiv.length;i++){
+					aDiv[i].style.width="12.5%";
+				}
+			}
+		}
+	}	
+
+	</script>
+</head>
+<body>
+	<div style="background: red">1</div>
+	<div style="background:green;">2</div>
+	<div style="background:yellow;">3</div>
+	<div style="background:purple;">4</div>
+	<div style="background:blue;">5</div>
+	<div style="background:orange;">6</div>
+	<div style="background:black;">7</div>
+	<div style="background:#0CF;">8</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;}
+	.box{width:700px;height:60px;background: #ccc;margin:40px auto;position: relative;}
+	.bar{width:0px;height:60px;background: red;position: absolute;top:0;left: 0;}
+	.precent{position: absolute;top:70px;left: 50%;}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBox=document.getElementById('box');
+			var oBar=document.getElementById('bar');
+			var oPc=document.getElementById('pc');
+			var count=0;
+			for(var i=0;i<76;i++){
+				var oImg=new Image();
+				oImg.src='http://www.zhinengshe.com/works/3525/img/'+i+'.jpg';
+				oImg.onload=function(){
+					count++;
+					oBar.style.width=count/76*100+'%';
+					oPc.innerHTML=((count/76)*100).toFixed(2)+'%';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<div class="bar" id="bar"></div>
+		<div class="precent" id="pc">0%</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>1111111111
+			<a href="javascript:;">上移</a>
+			<a href="javascript:;">下移</a>
+		</li>
+		<li>2222222222
+			<a href="javascript:;">上移</a>
+			<a href="javascript:;">下移</a>
+		</li>
+		<li>3333333333
+			<a href="javascript:;">上移</a>
+			<a href="javascript:;">下移</a>
+		</li>
+		<li>4444444444
+			<a href="javascript:;">上移</a>
+			<a href="javascript:;">下移</a>
+		</li>
+	</ul>
+<script type="text/javascript">
+var oUl=document.getElementsByTagName('ul')[0];
+var aA=oUl.getElementsByTagName('a');
+for(var i=0;i<aA.length;i++){
+	if(i%2==0){
+		aA[i].onclick=function(){
+			var oLi=this.parentNode;
+			if(oLi==oUl.children[0]){
+				alert('亲，别点了，到顶了');
+			}
+			var oPrev=oLi.previousElementSibling||oLi.previousSibling;
+			oUl.insertBefore(oLi,oPrev);
+		}
+	}else{
+		aA[i].onclick=function(){
+			var oLi=this.parentNode;
+			if(oLi==oUl.children[oUl.children.length-1]){
+				alert('亲，别点了，到底了');
+			}
+			var oNext=oLi.nextElementSibling||oLi.nextSibling;
+			oNext=oNext.nextElementSibling||oNext.nextSibling;
+			oUl.insertBefore(oLi,oNext);
+		}
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{margin:0;padding:0;list-style: none;}
+	.box{width:666px;margin:0 auto;overflow: hidden;}
+	.box ul{width:200px;border:1px solid #ccc;float: left;margin:0 10px;}
+	.box li{margin:10px 0;}
+	</style>
+	<script type="text/javascript">
+	function rnd(n,m){
+		return Math.floor(Math.random()*(m-n)+n);
+	}
+	function createLi(){
+		var oLi=document.createElement('li');
+		oLi.style.height=rnd(100,300)+'px';
+		oLi.style.background='rgb('+rnd(0,256)+','+rnd(0,256)+','+rnd(0,256)+')';
+		return oLi;
+	}
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		var aUl=oBox.children;
+		var N=20;
+		fn();
+		function fn(){
+			for(var i=0;i<N;i++){
+				var arr=[];
+				for(var j=0;j<aUl.length;j++){
+					arr.push(aUl[j]);
+				}
+				arr.sort(function(num1,num2){
+					return num1.offsetHeight-num2.offsetHeight;
+				});
+				arr[0].appendChild(createLi());
+			}
+		}
+		window.onscroll=window.onresize=function(){
+			var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+			var clientH=document.documentElement.clientHeight;
+			if(scrollT+clientH>=oBox.offsetHeight){
+				fn();
+			}
+		}
+	}
+	//思路：先获取ul，比较他们的高度，在最短的那里插入li，滚动的时候当可视区高度加上滚动距离超过盒子的最长高度时就继续创建新的li
+	</script>
+</head>
+<body>
+	<div class="box" id="box">
+		<ul></ul>
+		<ul></ul>
+		<ul></ul>
+	</div>
+</body>
+</html>

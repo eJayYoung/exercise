@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body{height:1000px;}
+	div{width:200px;height:200px;background: red;position: absolute;right:0;bottom:0;}
+	</style>
+	<script type="text/javascript">
+	window.onload=function(){
+		var oBox=document.getElementById('box');
+		if(window.navigator.userAgent.indexOf('MSIE 6.0')!=-1){
+			window.onresize=window.onsrcoll=function(){
+				var scrollT=document.documentElement.scrollTop||document.body.scrollTop;
+				var clientH=document.documentElement.clientHeight;
+				oBox.style.top=scrollT+clientH-oBox.offsetTop+'px';
+			}
+		}
+	}
+	</script>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+</html>
